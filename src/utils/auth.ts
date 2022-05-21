@@ -1,8 +1,6 @@
 import { spotifyAuthConfig } from '../config/spotifyAuth.config';
 
-type AccessTokenWithExpiry = { accessToken: string; expiresIn: string };
-
-export const getAccessTokenFromUrlHash = (hash: string): AccessTokenWithExpiry => {
+export const getAccessTokenFromUrlHash = (hash: string): { accessToken: string; expiresIn: string } => {
   if (!hash)
     return {
       accessToken: '',
@@ -27,12 +25,12 @@ export const getAccessTokenFromUrlHash = (hash: string): AccessTokenWithExpiry =
   };
 };
 
-export const getAccessTokenFromSessionStorage = (): AccessTokenWithExpiry => {
+export const getAccessTokenFromSessionStorage = (): { accessToken: string; expiresAt: string } => {
   const accessToken = sessionStorage.getItem(spotifyAuthConfig.sessionStorageAccessTokenKey) || '';
-  const expiresIn = sessionStorage.getItem(spotifyAuthConfig.sessionStorageAccessTokenExpiryKey) || '';
+  const expiresAt = sessionStorage.getItem(spotifyAuthConfig.sessionStorageAccessTokenExpiryKey) || '';
 
   return {
     accessToken,
-    expiresIn,
+    expiresAt,
   };
 };

@@ -12,10 +12,10 @@ type SpotifyAuthContextType = {
 const SpotifyAuthContext = createContext<SpotifyAuthContextType>();
 
 export function SpotifyAuthProvider(props: PropsWithChildren) {
-  const { accessToken: storedToken, expiresIn: storedExpiresIn } = getAccessTokenFromSessionStorage();
+  const { accessToken: storedToken, expiresAt: storedExpiresAt } = getAccessTokenFromSessionStorage();
   let initialValue = '';
 
-  if (storedToken && parseInt(storedExpiresIn, 10) > Date.now()) {
+  if (storedToken && parseInt(storedExpiresAt, 10) > Date.now()) {
     initialValue = storedToken;
   }
 
