@@ -16,20 +16,23 @@ jobs:
     if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
       - name: Setup PNPM
         uses: pnpm/action-setup@v2.2.1
-      
+        with:
+          version: 7.1.3
+
       - name: Setup Node.js environment
         uses: actions/setup-node@v3.2.0
         with:
           node-version: 18
           cache: 'pnpm'
-          
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      
+
       - name: Prettier
         run: pnpm run prettier:check
 

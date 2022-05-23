@@ -6,7 +6,11 @@
     "start": "vite",
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "lint": "eslint ./src --ext .js,.ts,.jsx,.tsx",
+    "lint:fix": "eslint ./src --ext .js,.ts,.jsx,.tsx --fix",
+    "prettier": "prettier --write './src/**/*.{js,ts,jsx,tsx,css,md,json,html}' --config .prettierrc.js",
+    "prettier:check": "prettier --check './src/**/*.{js,ts,jsx,tsx,css,md,json,html}' --config .prettierrc.js"
   },
   "license": "MIT",
   "dependencies": {
