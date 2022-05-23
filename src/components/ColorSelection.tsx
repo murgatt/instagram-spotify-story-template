@@ -1,6 +1,7 @@
 import type { Component } from 'solid-js';
 import { styled } from 'solid-styled-components';
 import { For } from 'solid-js';
+import CustomColorInput from './CustomColorInput';
 
 type ColorSelectionProps = {
   colors: string[];
@@ -13,6 +14,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 16px;
 `;
 
 const Color = styled.button`
@@ -44,21 +46,8 @@ const ColorList = styled.div`
   gap: 4px;
 `;
 
-const CustomColor = styled.div`
-  margin-top: 16px;
-
-  & > label {
-    margin-right: 16px;
-  }
-`;
-
 const ColorSelection: Component<ColorSelectionProps> = props => {
   const handleColorClick = (color: string) => () => {
-    props.onColorChange(color);
-  };
-
-  const handleCustomColorChange = (e: Event) => {
-    const color = (e.currentTarget as HTMLInputElement).value;
     props.onColorChange(color);
   };
 
@@ -75,16 +64,7 @@ const ColorSelection: Component<ColorSelectionProps> = props => {
           )}
         </For>
       </ColorList>
-      <CustomColor>
-        <label for="customColor">Custom color:</label>
-        <input
-          type="color"
-          value={props.selectedColor}
-          name="customColor"
-          id="customColor"
-          onChange={handleCustomColorChange}
-        />
-      </CustomColor>
+      <CustomColorInput color={props.selectedColor} onChange={props.onColorChange} />
     </Wrapper>
   );
 };

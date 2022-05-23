@@ -5,6 +5,7 @@ import { useSpotifyAuth } from '../contexts/spotifyAuthContext';
 import { getTrackData } from '../services/spotify.services';
 import StoryTemplate from '../components/StoryTemplate';
 import ColorSelection from '../components/ColorSelection';
+import DownloadButton from '../components/DownloadButton';
 
 type TrackProps = {
   trackId: string;
@@ -18,6 +19,7 @@ const TrackSection = styled.section`
 
 const Track: Component<TrackProps> = props => {
   const [color, setColor] = createSignal('');
+  const [isCoverDisplayed, setIsCoverDisplayed] = createSignal(true);
   const { accessToken } = useSpotifyAuth();
   const fetchTrackData = async (id: string) => getTrackData({ trackId: id, accessToken: accessToken() });
   const trackId = () => props.trackId;
@@ -28,13 +30,23 @@ const Track: Component<TrackProps> = props => {
     setColor(initialColor);
   });
 
+  const handleTemplateClick = () => {
+    setIsCoverDisplayed(!isCoverDisplayed());
+  };
+
   return (
     <TrackSection>
       <div>{track.loading && 'Loading...'}</div>
       {!track.loading && !track.loading && track() && (
         <>
-          <StoryTemplate color={color()} />
+          <StoryTemplate
+            color={color()}
+            coverUrl={track()?.album.images[0].url || ''}
+            isCoverDisplayed={isCoverDisplayed()}
+            onClick={handleTemplateClick}
+          />
           <ColorSelection selectedColor={color()} colors={track()?.colors || []} onColorChange={setColor} />
+          <DownloadButton />
         </>
       )}
     </TrackSection>
