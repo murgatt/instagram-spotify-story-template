@@ -1,0 +1,10 @@
+html {
+  --background-main: #000000;
+  --color-main: #ffffff;
+  --color-dark: #000000;
+  --primary: #1ed760;
+  --primary-hover: #1fdf64;
+  --primary-focus: #169c46;
+  --border-radius: 500px;
+
+}
