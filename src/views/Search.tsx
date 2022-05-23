@@ -76,7 +76,6 @@ const Search: Component<SearchProps> = props => {
 
   return (
     <SearchSection>
-      https://open.spotify.com/track/5mbeR5Kz4A1wfZsU9bXUJt?si=6a24ca7f5c294cd4
       <Form onSubmit={handleSubmit}>
         <Field>
           <SearchInput onInput={handleChange} placeholder="Spotify track URL" required type="url" />
