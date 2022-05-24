@@ -1,14 +1,15 @@
 @font-face {
-  font-family: "Circular Bold";
-  src: url("../fonts/CircularSpotify-UI-Latin-OS2v3-Bold.woff2") format("woff2");
+  font-family: 'Circular Bold';
+  src: url('../fonts/CircularSpotify-UI-Latin-OS2v3-Bold.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: "Circular Book";
-  src: url("../fonts/CircularSpotify-UI-Latin-OS2v3-Book.woff2") format("woff2");
+  font-family: 'Circular Book';
+  src: url('../fonts/CircularSpotify-UI-Latin-OS2v3-Book.woff2') format('woff2');
 }
 
-html, body {
+html,
+body {
   background-color: var(--background-main);
   font-family: 'Circular Book', Helvetica, Arial, sans-serif;
 }
