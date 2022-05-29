@@ -10,7 +10,7 @@ type SearchProps = {
 };
 
 const SearchSection = styled.section`
-  height: 100vh;
+  height: calc(100vh - 48px);
   display: flex;
   justify-content: center;
   align-items: center;

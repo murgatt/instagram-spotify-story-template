@@ -8,7 +8,7 @@ const LoginSection = styled.section`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
+  height: calc(100vh - 48px);
 `;
 
 const Login: Component = () => (

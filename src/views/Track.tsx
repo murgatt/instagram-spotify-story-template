@@ -6,6 +6,7 @@ import { getTrackData } from '../services/spotify.services';
 import StoryTemplate from '../components/StoryTemplate';
 import ColorSelection from '../components/ColorSelection';
 import DownloadButton from '../components/DownloadButton';
+import Loader from '../components/Loader';
 
 type TrackProps = {
   trackId: string;
@@ -14,6 +15,13 @@ type TrackProps = {
 const TrackSection = styled.section`
   display: flex;
   flex-direction: column;
+  align-items: center;
+`;
+
+const LoaderWrapper = styled.div`
+  height: calc(100vh - 48px);
+  display: flex;
+  justify-content: center;
   align-items: center;
 `;
 
@@ -36,8 +44,11 @@ const Track: Component<TrackProps> = props => {
 
   return (
     <TrackSection>
-      <div>{track.loading && 'Loading...'}</div>
-      {!track.loading && !track.loading && track() && (
+      {track.loading ? (
+        <LoaderWrapper>
+          <Loader />
+        </LoaderWrapper>
+      ) : (
         <>
           <StoryTemplate
             color={color()}

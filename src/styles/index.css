@@ -13,3 +13,7 @@ body {
   background-color: var(--background-main);
   font-family: 'Circular Book', Helvetica, Arial, sans-serif;
 }
+
+a {
+  color: var(--color-main);
+}

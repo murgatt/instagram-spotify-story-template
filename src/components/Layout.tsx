@@ -1,6 +1,7 @@
 import { Outlet } from 'solid-app-router';
 import type { Component } from 'solid-js';
 import { styled } from 'solid-styled-components';
+import Footer from './Footer';
 
 const Main = styled.main`
   min-height: 100vh;
@@ -12,6 +13,7 @@ const Main = styled.main`
 const Layout: Component = () => (
   <Main>
     <Outlet />
+    <Footer />
   </Main>
 );
 

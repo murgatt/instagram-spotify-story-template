@@ -1,6 +1,7 @@
 import type { Component } from 'solid-js';
+import type { IconProps } from './types/IconPropTypes';
 
-const SearchIcon: Component = props => (
+const SearchIcon: Component<IconProps> = props => (
   <svg
     {...props}
     xmlns="http://www.w3.org/2000/svg"
