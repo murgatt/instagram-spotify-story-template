@@ -1,7 +1,6 @@
 import { styled } from 'solid-styled-components';
 import { createEffect } from 'solid-js';
 import type { Component } from 'solid-js';
-import gradientImg from '../assets/images/gradient.png';
 
 type StoryTemplateProps = {
   color: string;
@@ -34,11 +33,11 @@ function drawTemplate({
     ctx.fillStyle = color || 'transparent';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    const gradient = new Image();
-    gradient.src = gradientImg;
-    gradient.onload = () => {
-      ctx.drawImage(gradient, 0, 0, canvas.width, canvas.height);
-    };
+    const gradient = ctx.createLinearGradient(0, canvas.height, 0, 0);
+    gradient.addColorStop(0, '#121212');
+    gradient.addColorStop(1, 'rgba(0, 0, 0, 0.6)');
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     if (isCoverDisplayed) {
       const cover = new Image();
