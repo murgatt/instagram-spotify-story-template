@@ -1,34 +1,72 @@
-## Usage
+# instagram-spotify-story-template
+> aka "spotigram"
 
-Those templates dependencies are maintained via [pnpm](https://pnpm.io) via `pnpm up -Lri`.
+A tool to create Instagram story template to share song based on spotify data.
 
-This is the reason you see a `pnpm-lock.yaml`. That being said, any package manager will work. This file can be safely be removed once you clone a template.
+It generates a story template with a gradient background color based on the colors of the track cover.
 
+The template can be downloaded or shared directly on Instagram if the app is used on a compatible smartphone.
+
+<img src="https://user-images.githubusercontent.com/12082276/171459929-1f26708f-7a99-4676-8a70-8b0fd257aaed.png" width="300" />
+
+## Installation
+This project is using [pnpm](https://pnpm.io/) as package manager.
 ```bash
-$ npm install # or pnpm install or yarn install
+pnpm install
 ```
 
-### Learn more on the [Solid Website](https://solidjs.com) and come chat with us on our [Discord](https://discord.com/invite/solidjs)
+## Development
+This project is using SolidJS framework. Learn more on the [Solid Website](https://solidjs.com).
 
 ## Available Scripts
 
-In the project directory, you can run:
+### Run the app
+```bash
+pnpm dev
+```
 
-### `npm dev` or `npm start`
+or 
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```bash
+pnpm start
+```
 
-The page will reload if you make edits.<br>
+### Build the app
+```bash
+pnpm build
+```
 
-### `npm run build`
+### Preview the app build
+```bash
+pnpm serve
+```
 
-Builds the app for production to the `dist` folder.<br>
-It correctly bundles Solid in production mode and optimizes the build for the best performance.
+### Lint
+**ESLint check**
+```bash
+pnpm lint
+```
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+**ESLint fix**
+```bash
+pnpm lint:fix
+```
 
-## Deployment
+**Prettier check**
+```bash
+pnpm prettier:check
+```
 
-You can deploy the `dist` folder to any static host provider (netlify, surge, now, etc.)
+**Prettier fix**
+```bash
+pnpm prettier
+```
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to follow the code style of the project and update translations if needed.
+
+## License
+[GPL-3.0 license](https://github.com/murgatt/instagram-spotify-story-template/blob/main/LICENSE)
